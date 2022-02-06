@@ -1,6 +1,7 @@
 <form action="/" method="get">
-    {% csrf_token %}
-    <p><strong>THE ERROR OCCURED:</strong></p>
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <div style="color:red;">
+        <p><strong>THE ERROR OCCURED:</strong></p>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    </div>
     <input type="submit" value="Go back" />
 </form>
