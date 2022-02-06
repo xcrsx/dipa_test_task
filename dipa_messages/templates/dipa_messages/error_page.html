@@ -1,0 +1,6 @@
+<form action="/" method="get">
+    {% csrf_token %}
+    <p><strong>THE ERROR OCCURED:</strong></p>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <input type="submit" value="Go back" />
+</form>

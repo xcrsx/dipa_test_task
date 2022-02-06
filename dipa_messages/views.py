@@ -24,3 +24,7 @@ class IndexView(View):
                 email=form.cleaned_data["email"], message=form.cleaned_data["message"]
             )
             return HttpResponseRedirect("/")
+        else:
+            return render(
+                request, "dipa_messages/error_page.html", {"error_message": form.errors}
+            )
