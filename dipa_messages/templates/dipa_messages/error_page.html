@@ -1,7 +1,9 @@
 <form action="/" method="get">
-    <div style="color:red;">
+    <div style="color: red">
         <p><strong>THE ERROR OCCURED:</strong></p>
-        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
     </div>
     <input type="submit" value="Go back" />
 </form>
