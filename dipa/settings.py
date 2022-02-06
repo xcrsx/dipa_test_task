@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
-from pathlib import Path
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -82,10 +82,13 @@ DATABASES = {
         "USER": os.environ.get("POSTGRES_USER"),
         "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
         "HOST": "db",
-        "PORT": os.environ.get("DB_PORT"),
+        "PORT": int(os.environ.get("DB_PORT", default=5432)),
     }
 }
 
+if "test" in sys.argv or "test\_coverage" in sys.argv:
+    DATABASES["default"]["ENGINE"] ="django.db.backends.postgresql"
+    DATABASES["default"]["NAME"] = ":memory:"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
