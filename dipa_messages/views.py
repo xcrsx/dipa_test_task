@@ -23,7 +23,7 @@ class IndexView(View):
             self.model.objects.create(
                 email=form.cleaned_data["email"], message=form.cleaned_data["message"]
             )
-            return HttpResponseRedirect("/")
+            return render(request, "dipa_messages/success_page.html")
         else:
             return render(
                 request, "dipa_messages/error_page.html", {"error_message": form.errors}
